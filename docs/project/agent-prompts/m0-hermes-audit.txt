@@ -1,0 +1,21 @@
+Max effort.
+ROLE: investigation
+OBJECTIVE: Audit the Sahaaya M0 pre-production pack for contradictions, unsafe claims, missing contracts, demo infeasibility, and hackathon evidence gaps.
+WORKTREE: D:\Work\Codex\Hackathon Projects\OpenAI Hackathon\Sahaaya
+ALLOWED FILES:
+- Read all repository files; do not modify any file.
+FORBIDDEN:
+- Edits, commits, uploads, publishing, secrets, external account actions, or scope expansion.
+REQUIREMENTS:
+- Treat docs/blueprint/SAHAAYA_MASTER_BLUEPRINT_v1.md as source of truth.
+- Check exact consistency across product, architecture, ADR, security, testing, evaluation, project state, and submission documents.
+- Check that the 72-hour five-responsibility golden path can be implemented and demonstrated under three minutes.
+- Check that GPT-5.6 has a justified bounded role while deterministic code owns authorization and verification.
+- Check privacy, emergency, medical, legal, financial, consent, and sensitive-data boundaries.
+- Return only actionable findings, ordered by severity, followed by DONE / BLOCKED / RISK / NEXT.
+TESTS:
+- Read-only reasoning audit.
+DELIVERABLE:
+- Concise Markdown audit report.
+STOP IF:
+- The task requires a secret, external mutation, or unsupported factual claim.
