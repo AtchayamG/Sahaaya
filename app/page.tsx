@@ -7,6 +7,7 @@ import {
   decide,
   initialWorkflowState,
   verifyReplay,
+  compileContinuity,
   type WorkflowStage,
   type WorkflowState,
   type AssignmentDecision
@@ -32,6 +33,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 export default function Home() {
   const [workflowState, setWorkflowState] = useState<WorkflowState>(initialWorkflowState);
   const [briefText, setBriefText] = useState(INITIAL_BRIEF);
+  const [liveProof, setLiveProof] = useState<{ status: "idle" | "running" | "success" | "error"; message: string }>({ status: "idle", message: "" });
   const [activeCitation, setActiveCitation] = useState<"fact_school" | "fact_pet" | "fact_elder" | "fact_utility" | "fact_access" | null>(null);
 
   // Follow-up question answers (interactive simulation)
@@ -95,6 +97,23 @@ export default function Home() {
     runTransition("mapped", steps, () => {
       setWorkflowState(advance(workflowState, replayFixture));
     });
+  };
+
+  const handleLiveProof = async () => {
+    setLiveProof({ status: "running", message: "Requesting a bounded, non-stored GPT-5.6 analysis…" });
+    announce("Live GPT-5.6 proof started.");
+    try {
+      const response = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ note: briefText }) });
+      const payload = await response.json() as { analysis?: { responsibilities?: unknown[]; proposals?: unknown[]; gaps?: unknown[] }; message?: string };
+      if (!response.ok || !payload.analysis) throw new Error(payload.message ?? "Live analysis was unavailable.");
+      const message = `Validated ${payload.analysis.responsibilities?.length ?? 0} responsibilities, ${payload.analysis.proposals?.length ?? 0} proposals, and ${payload.analysis.gaps?.length ?? 0} gaps.`;
+      setLiveProof({ status: "success", message });
+      announce(`Live GPT-5.6 proof succeeded. ${message}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Live GPT-5.6 was unavailable.";
+      setLiveProof({ status: "error", message });
+      announce(`Live GPT-5.6 proof failed. ${message}`);
+    }
   };
 
   const handleRunRehearsal = () => {
@@ -181,6 +200,7 @@ export default function Home() {
 
   // Client-side pack downloads
   const downloadJson = () => {
+    const compiled = compileContinuity(replayFixture, workflowState);
     const exportData = {
       title: "Sahaaya Family Continuity Plan",
       absenceWindow: "72 hours",
@@ -193,8 +213,8 @@ export default function Home() {
       userDecisions: workflowState.decisions,
       revisionNotes: revisionComments,
       followUpAnswers: questionAnswers,
-      verification: verifyReplay(replayFixture, workflowState),
-      planIntegrityChecksum: "sha256-8a9d3e7428f5c9e2b10a4e76a02b1f80e92211c47df5a298cb3d7a82c7a911eb"
+      rolePacks: compiled.packs,
+      receipt: compiled.receipt,
     };
 
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
@@ -208,13 +228,14 @@ export default function Home() {
   };
 
   const downloadText = () => {
+    const compiled = compileContinuity(replayFixture, workflowState);
     let content = `====================================================
 SAHAAYA — FAMILY CONTINUITY PLANNER
 ====================================================
 ABSENCE WINDOW: 72 hours
 ORGANIZER: Mira (Fictional Scenario)
 DISCLAIMER: Sahaaya is a planning aid, not emergency, medical, legal, financial, or safeguarding advice.
-PLAN INTEGRITY CHECKSUM: sha256-8a9d3e7428f5c9e2b10a4e76a02b1f80e92211c47df5a298cb3d7a82c7a911eb
+PLAN INTEGRITY CHECKSUM: ${compiled.receipt.checksum}
 
 TRUSTED CIRCLE MEMBERS:
 ----------------------------------------\n`;
@@ -317,6 +338,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
   // Verification results
   const verificationResults = verifyReplay(replayFixture, workflowState);
   const allVerified = verificationResults.every(r => r.passed);
+  const compiledContinuity = allVerified ? compileContinuity(replayFixture, workflowState) : null;
 
   return (
     <div className="main-layout">
@@ -345,7 +367,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
       <section className="disclosure-bar" aria-label="Important Disclosures">
         <div className="container disclosure-content">
           <span>⚠️ <strong>Disclosure:</strong> Sahaaya is a planning aid, not emergency, medical, legal, financial, or safeguarding advice.</span>
-          <span>🔒 This judging path runs entirely offline with fictional sandbox data. No external network actions or notifications occur.</span>
+          <span>🔒 Replay stays local with fictional data. Live analysis is explicit, non-stored, and never sends messages or notifications.</span>
         </div>
       </section>
 
@@ -516,8 +538,10 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                               ) : (
                                 <span style={{ color: "var(--color-gold)", fontWeight: 600 }}>⏳ Pending</span>
                               )
-                            ) : (isCandidateCompiled || isVerified || isExported) ? (
-                              <span style={{ color: "var(--color-teal)", fontWeight: 600 }}>🔒 Sealed</span>
+                            ) : isCandidateCompiled ? (
+                              <span style={{ color: "var(--color-gold)", fontWeight: 600 }}>Candidate</span>
+                            ) : (isVerified || isExported) ? (
+                              <span style={{ color: "var(--color-teal)", fontWeight: 600 }}>Verified</span>
                             ) : (
                               <span style={{ color: "var(--color-evergreen-muted)" }}>⏳ Unassigned</span>
                             )}
@@ -576,6 +600,21 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                         Reset Golden Brief
                       </button>
                     </div>
+                  </div>
+
+                  <div className="card highlighted-teal">
+                    <h3 className="card-title">Optional Live GPT-5.6 Proof</h3>
+                    <p style={{ fontSize: "0.875rem", color: "var(--color-evergreen-light)" }}>
+                      Send this fictional brief to the server-only Responses API with Structured Outputs and <code>store:false</code>. The result is validated again and never auto-approves a plan.
+                    </p>
+                    <button className="btn btn-secondary" onClick={handleLiveProof} disabled={liveProof.status === "running"}>
+                      {liveProof.status === "running" ? "Validating with GPT-5.6…" : "Run Live GPT-5.6 Proof"}
+                    </button>
+                    {liveProof.status !== "idle" && (
+                      <p role="status" style={{ marginTop: "0.75rem", overflowWrap: "anywhere", color: liveProof.status === "error" ? "var(--color-terracotta)" : "var(--color-evergreen-light)" }}>
+                        {liveProof.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="card highlighted-gold">
@@ -697,7 +736,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                     </p>
                     <ul style={{ fontSize: "0.85rem", margin: 0, paddingLeft: "1.25rem", color: "var(--color-evergreen-light)" }}>
                       <li>No passwords or banking tokens stored for the Utility payment reminder.</li>
-                      <li>No physical home door lock codes stored for Emergency Entry.</li>
+                      <li>No physical home door lock codes stored for trusted home access.</li>
                     </ul>
                   </div>
 
@@ -712,11 +751,11 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                       <div>
                         <strong>Day 2 (Saturday)</strong><br />
                         <span style={{ color: "var(--color-evergreen-muted)" }}>• Morning/Evening: Milo feeding (Primary: Neha, Backup: Lakshmi)</span><br />
-                        <span style={{ color: "var(--color-evergreen-muted)" }}>• Afternoon: Electricity Bill payment check (Primary: Arjun)</span>
+                        <span style={{ color: "var(--color-evergreen-muted)" }}>• Afternoon: Electricity bill reminder review (Primary: Arjun)</span>
                       </div>
                       <div>
                         <strong>Day 3 (Sunday)</strong><br />
-                        <span style={{ color: "var(--color-evergreen-muted)" }}>• Evening: Emergency access backup availability check (Primary: Neha)</span>
+                        <span style={{ color: "var(--color-evergreen-muted)" }}>• Evening: Trusted home access backup check (Primary: Neha)</span>
                       </div>
                     </div>
 
@@ -994,7 +1033,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                       <div>
                         <h3 style={{ margin: 0, color: "var(--color-teal)", fontWeight: 600 }}>Plan Verification Passed</h3>
                         <p style={{ fontSize: "0.85rem", margin: "0.25rem 0 0 0", color: "var(--color-evergreen-light)" }}>
-                          All deterministic rules satisfied. Plan is mathematically integrity-sealed.
+                          All deterministic rules passed and a reproducible receipt checksum was generated.
                         </p>
                       </div>
                     </div>
@@ -1019,7 +1058,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                     <div style={{ marginTop: "1.5rem", borderTop: "1px solid var(--color-evergreen-opacity)", paddingTop: "1rem" }}>
                       <div style={{ fontSize: "0.8rem", fontFamily: "monospace", wordBreak: "break-all", color: "var(--color-evergreen-muted)" }}>
                         <strong>Deterministic Plan Signature (SHA-256):</strong><br />
-                        sha256-8a9d3e7428f5c9e2b10a4e76a02b1f80e92211c47df5a298cb3d7a82c7a911eb
+                        {compiledContinuity?.receipt.checksum}
                       </div>
                     </div>
 
@@ -1047,7 +1086,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
                   <div className="alert-box alert-box-success">
                     <div>✓</div>
                     <div>
-                      <strong>Ready for Deployment:</strong> The final package has been compiled, verified, and sealed.
+                      <strong>Ready for manual sharing:</strong> The final package has been compiled and verified locally.
                     </div>
                   </div>
 
@@ -1076,7 +1115,7 @@ End of Sahaaya Continuity Pack. Store in a secure physical place.
 
                     <div style={{ marginTop: "2rem", borderTop: "1px solid var(--color-evergreen-opacity)", paddingTop: "1rem" }}>
                       <p style={{ fontSize: "0.8rem", color: "var(--color-evergreen-muted)" }}>
-                        🔒 <strong>Privacy Checkpoint:</strong> This tool runs offline in your browser container. None of your data was transmitted to any third-party API or server during compilation.
+                        🔒 <strong>Privacy Checkpoint:</strong> Compilation and export stayed in this browser. The optional Live GPT-5.6 proof, if explicitly run, is a separate non-stored server request.
                       </p>
                     </div>
 

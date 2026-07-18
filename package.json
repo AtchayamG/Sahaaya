@@ -13,6 +13,7 @@
     "live-smoke": "tsx scripts/live-smoke.ts"
   },
   "dependencies": {
+    "@noble/hashes": "^1.8.0",
     "next": "^15.5.0",
     "openai": "^6.48.0",
     "react": "^19.1.0",
@@ -24,10 +25,15 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "axe-core": "^4.12.1",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.5.0",
+    "postcss": "^8.5.10",
     "tsx": "^4.23.1",
     "typescript": "^5.8.0",
     "vitest": "^3.2.0"
+  },
+  "overrides": {
+    "postcss": "$postcss"
   }
 }

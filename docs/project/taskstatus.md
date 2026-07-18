@@ -16,6 +16,8 @@ M2/M3 — provider, compiler, and product experience.
 - Lint, typecheck, seven unit/golden-path assertions, and production build pass.
 - Candidate role-pack compiler and deterministic SHA-256 receipt implemented.
 - Server-only GPT-5.6 Responses Structured Output route passed a redacted live smoke with `store:false` and application-side grounding.
+- agy UI work was integrated, then independently corrected and verified for candidate/verified separation, receipt truthfulness, and Live GPT-5.6 visibility.
+- Playwright completed the Live and Replay golden paths; 360px width has no horizontal overflow and axe reports zero final-state violations.
 
 ## BLOCKED
 
@@ -28,6 +30,6 @@ M2/M3 — provider, compiler, and product experience.
 
 ## NEXT
 
-1. Commit the validated M1 foundation.
-2. Build the candidate pack/receipt and fail-closed GPT-5.6 provider boundary.
-3. Run agy in an isolated worktree for the responsive accessible workflow UI.
+1. Run the final local gate matrix and commit M2/M3 integration.
+2. Publish a public GitHub repository and deploy the server-backed application with a protected key.
+3. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.

@@ -7,7 +7,7 @@
   --color-evergreen-ink: #112421;
   --color-evergreen: #18312c;
   --color-evergreen-light: #415e57;
-  --color-evergreen-muted: #627b75;
+  --color-evergreen-muted: #506963;
   --color-evergreen-opacity: rgba(24, 49, 44, 0.08);
   --color-evergreen-border: rgba(24, 49, 44, 0.15);
   --color-terracotta: #b94a2c;
@@ -15,7 +15,7 @@
   --color-terracotta-bg: #fdf5f3;
   --color-terracotta-border: rgba(185, 74, 44, 0.25);
   --color-gold: #c38c28;
-  --color-gold-hover: #a5741f;
+  --color-gold-hover: #775015;
   --color-gold-bg: #fdfbf5;
   --color-gold-border: rgba(195, 140, 40, 0.25);
   --color-teal: #1d594b;
@@ -259,6 +259,21 @@ a, button, [role="button"], input, textarea, select {
 
 .progress-step.active::after {
   background-color: var(--color-gold);
+}
+
+@media (max-width: 767px) {
+  .progress-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    overflow-x: visible;
+  }
+
+  .progress-step {
+    min-width: 0;
+    padding: 0.4rem 0.1rem;
+    white-space: normal;
+    font-size: 0.68rem;
+  }
 }
 
 /* Main workspace layout */

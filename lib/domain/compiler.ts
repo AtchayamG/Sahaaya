@@ -1,4 +1,5 @@
-import { createHash } from "node:crypto";
+import { sha256 } from "@noble/hashes/sha256";
+import { bytesToHex } from "@noble/hashes/utils";
 import type { ReplayFixture } from "./contracts";
 import type { WorkflowState } from "./workflow";
 import { verifyReplay, type VerificationResult } from "./verification";
@@ -21,14 +22,15 @@ export function compileContinuity(fixture: ReplayFixture, state: WorkflowState, 
     }),
   })).filter((pack) => pack.items.length > 0);
   const canonical = JSON.stringify({ provider, packs, verification });
+  const checksum = bytesToHex(sha256(new TextEncoder().encode(canonical)));
   return {
     packs,
     receipt: {
-      runId: `run_${createHash("sha256").update(canonical).digest("hex").slice(0, 12)}`,
+      runId: `run_${checksum.slice(0, 12)}`,
       provider,
       approvedDecisions: state.decisions.filter((item) => item.decision === "approved").length,
       verification,
-      checksum: createHash("sha256").update(canonical).digest("hex"),
+      checksum,
     },
   };
 }
