@@ -2,7 +2,7 @@
 
 ## Active milestone
 
-M2/M3 — provider, compiler, and product experience.
+M5 — publication and submission media.
 
 ## DONE
 
@@ -18,10 +18,12 @@ M2/M3 — provider, compiler, and product experience.
 - Server-only GPT-5.6 Responses Structured Output route passed a redacted live smoke with `store:false` and application-side grounding.
 - agy UI work was integrated, then independently corrected and verified for candidate/verified separation, receipt truthfulness, and Live GPT-5.6 visibility.
 - Playwright completed the Live and Replay golden paths; 360px width has no horizontal overflow and axe reports zero final-state violations.
+- Final lint, typecheck, seven-test, demo assertion, production build, dependency audit, and clean-diff gates pass.
+- Public GitHub repository published at `https://github.com/AtchayamG/Sahaaya`.
 
 ## BLOCKED
 
-- None for M2/M3.
+- None for M5.
 
 ## RISK
 
@@ -30,6 +32,6 @@ M2/M3 — provider, compiler, and product experience.
 
 ## NEXT
 
-1. Run the final local gate matrix and commit M2/M3 integration.
-2. Publish a public GitHub repository and deploy the server-backed application with a protected key.
-3. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.
+1. Deploy the server-backed application with a protected key and verify the public golden path.
+2. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.
+3. Complete and independently verify the Devpost submission.

@@ -1,5 +1,5 @@
 {
-  "active_milestone": "M2_M3_PROVIDER_AND_EXPERIENCE",
+  "active_milestone": "M5_PUBLICATION_AND_MEDIA",
   "status": "in_progress",
   "gates": {
     "rules_verified": true,
@@ -16,7 +16,7 @@
     "live_gpt_5_6_proof": true,
     "browser_e2e_verified": true,
     "accessibility_verified": true,
-    "public_repository": false,
+    "public_repository": true,
     "public_app": false,
     "demo_video": false,
     "devpost_submission": false
@@ -25,9 +25,9 @@
     "category": "Apps for Your Life",
     "devpost_url": null,
     "youtube_url": null,
-    "github_url": null,
+    "github_url": "https://github.com/AtchayamG/Sahaaya",
     "public_app_url": null,
     "codex_session_id": "019f5282-7c6f-76d1-888e-ffb0c25de3c8"
   },
-  "last_updated": "2026-07-19T01:49:00+05:30"
+  "last_updated": "2026-07-19T03:15:00+05:30"
 }

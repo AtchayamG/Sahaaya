@@ -2,7 +2,7 @@
 
 ## Status
 
-IN PROGRESS — M2/M3 provider, compiler, and product experience active.
+IN PROGRESS — M5 publication and submission media active.
 
 ## Verified
 
@@ -10,12 +10,12 @@ IN PROGRESS — M2/M3 provider, compiler, and product experience active.
 - M1: strict five-responsibility Replay contracts, deterministic fictional fixture, approval-gated workflow, and verification assertions.
 - Lint, typecheck, seven unit/golden-path assertions, deterministic demo assertion, and production build pass.
 - A bounded Live GPT-5.6 smoke returned five grounded responsibilities and five proposals with response storage disabled.
+- Integrated UI, Replay and Live browser golden paths, responsive layout, and final-state accessibility are verified.
+- The public repository is available at `https://github.com/AtchayamG/Sahaaya`.
 
 ## Not yet verified
 
-- Integrated product UI and browser/accessibility proof
-- Browser E2E and accessibility
-- Public repository and deployment
+- Public deployment and production golden path
 - Demo media and Devpost submission
 
 ## Primary Codex task

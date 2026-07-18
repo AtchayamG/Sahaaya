@@ -2,13 +2,13 @@
 
 ## Current state
 
-M0 and M1 are complete locally. The strict deterministic Replay foundation passes lint, typecheck, tests, demo assertion, and production build. No public repository, deployment, video, or submission claim exists yet.
+M0-M4 are complete and independently verified. Replay and Live GPT-5.6 paths pass the full local gate matrix and browser/accessibility audit. The public repository is `https://github.com/AtchayamG/Sahaaya`; deployment, media, and Devpost submission remain pending.
 
 ## External-agent status
 
 - Hermes M0 audit was blocked by missing authentication and produced no changes.
 - Claude should receive complex backend/reasoning work when Fable 5 usage is available, with Opus 4.8 as the quota fallback.
-- agy owns the UI/UX implementation in an isolated worktree after the shared domain foundation lands.
+- agy implemented the bounded UI/UX task in an isolated worktree; Codex integrated, corrected, and independently verified it.
 
 ## Canonical product
 
