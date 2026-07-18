@@ -28,6 +28,7 @@ export async function analyzeWithGpt56(note: string): Promise<LiveAnalysis> {
   } catch (error) {
     if (error instanceof LiveProviderError) throw error;
     if (error instanceof OpenAI.APIError) throw new LiveProviderError("provider_error", `Live GPT-5.6 provider request failed (HTTP ${error.status}, code ${error.code ?? "unknown"}).`);
+    console.error("Sahaaya live provider failed", error instanceof Error ? `${error.name}: ${error.message}` : "Unknown provider failure");
     throw new LiveProviderError("provider_error", "Live GPT-5.6 could not complete the analysis. Replay remains available separately.", { cause: error });
   }
 }
