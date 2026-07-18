@@ -1,0 +1,23 @@
+[
+  {
+    "svg_source": "docs/submission/media/visuals/youtube_thumbnail.svg",
+    "png_target": "docs/submission/media/visuals/youtube_thumbnail.png",
+    "width": 1280,
+    "height": 720,
+    "purpose": "YouTube Video Thumbnail (16:9)"
+  },
+  {
+    "svg_source": "docs/submission/media/visuals/opening_title_card.svg",
+    "png_target": "docs/submission/media/visuals/opening_title_card.png",
+    "width": 1920,
+    "height": 1080,
+    "purpose": "Video Opening Title Slide (16:9)"
+  },
+  {
+    "svg_source": "docs/submission/media/visuals/closing_card.svg",
+    "png_target": "docs/submission/media/visuals/closing_card.png",
+    "width": 1920,
+    "height": 1080,
+    "purpose": "Video Closing Outro Slide with Links (16:9)"
+  }
+]
