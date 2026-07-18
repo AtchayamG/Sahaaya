@@ -2,22 +2,21 @@
 
 ## Status
 
-IN PROGRESS — M0 pre-production architecture active.
+IN PROGRESS — M2/M3 provider, compiler, and product experience active.
 
 ## Verified
 
-- Clean repository initialized during the submission period.
-- Product identity, category, golden scenario, safety boundaries, and E2E objective frozen.
-- Blueprint, product, architecture, security, testing, evaluation, and implementation plans created.
+- M0: clean pre-production blueprint, architecture, safety, evaluation, testing, and submission evidence plan.
+- M1: strict five-responsibility Replay contracts, deterministic fictional fixture, approval-gated workflow, and verification assertions.
+- Lint, typecheck, four unit/golden-path assertions, deterministic demo assertion, and production build pass.
 
 ## Not yet verified
 
-- Implementation and automated gates
-- Live GPT-5.6 proof
+- Complete candidate pack, receipt, and Live GPT-5.6 boundary
+- Browser E2E and accessibility
 - Public repository and deployment
 - Demo media and Devpost submission
 
 ## Primary Codex task
 
 Session identifier: `019f5282-7c6f-76d1-888e-ffb0c25de3c8`.
-

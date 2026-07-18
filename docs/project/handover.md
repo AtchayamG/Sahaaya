@@ -2,7 +2,7 @@
 
 ## Current state
 
-M0 pre-production is complete and awaiting its baseline commit. M1 implementation has not started. No public repository, deployment, video, or submission claim exists yet.
+M0 and M1 are complete locally. The strict deterministic Replay foundation passes lint, typecheck, tests, demo assertion, and production build. No public repository, deployment, video, or submission claim exists yet.
 
 ## External-agent status
 

@@ -9,7 +9,7 @@ test-results/
 .env.*.local
 *.log
 *.tmp
+*.tsbuildinfo
 *.webm
 .DS_Store
 Thumbs.db
-

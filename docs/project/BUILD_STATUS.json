@@ -1,5 +1,5 @@
 {
-  "active_milestone": "M1_DOMAIN_FOUNDATION",
+  "active_milestone": "M2_M3_PROVIDER_AND_EXPERIENCE",
   "status": "in_progress",
   "gates": {
     "rules_verified": true,
@@ -12,7 +12,7 @@
     "test_strategy_complete": true,
     "evaluation_plan_complete": true,
     "implementation_complete": false,
-    "deterministic_replay_verified": false,
+    "deterministic_replay_verified": true,
     "live_gpt_5_6_proof": false,
     "browser_e2e_verified": false,
     "accessibility_verified": false,
@@ -29,5 +29,5 @@
     "public_app_url": null,
     "codex_session_id": "019f5282-7c6f-76d1-888e-ffb0c25de3c8"
   },
-  "last_updated": "2026-07-19T01:35:00+05:30"
+  "last_updated": "2026-07-19T01:32:00+05:30"
 }

@@ -2,7 +2,7 @@
 
 ## Active milestone
 
-M1 — domain foundation and deterministic Replay workflow.
+M2/M3 — provider, compiler, and product experience.
 
 ## DONE
 
@@ -12,10 +12,12 @@ M1 — domain foundation and deterministic Replay workflow.
 - P0 narrowed to a fictional 72-hour household-organizer absence with five responsibilities.
 - M0 blueprint, architecture, product, safety, testing, evaluation, and submission plans completed and validated.
 - Hermes read-only audit attempt recorded; authentication was unavailable and no changes were produced.
+- Next.js TypeScript foundation, strict Replay contracts, fictional fixture, approval-gated workflow, and deterministic verification implemented.
+- Lint, typecheck, four unit/golden-path assertions, and production build pass.
 
 ## BLOCKED
 
-- None for M1.
+- None for M2/M3.
 
 ## RISK
 
@@ -24,6 +26,6 @@ M1 — domain foundation and deterministic Replay workflow.
 
 ## NEXT
 
-1. Commit the validated M0 baseline.
-2. Implement strict domain contracts, fixture provider, workflow state machine, and deterministic verification.
-3. Create an isolated agy worktree for the responsive UI shell after the shared foundation is committed.
+1. Commit the validated M1 foundation.
+2. Build the candidate pack/receipt and fail-closed GPT-5.6 provider boundary.
+3. Run agy in an isolated worktree for the responsive accessible workflow UI.
