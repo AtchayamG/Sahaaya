@@ -14,7 +14,8 @@ export async function analyzeWithGpt56(note: string): Promise<LiveAnalysis> {
     const response = await client.responses.parse({
       model: "gpt-5.6",
       store: false,
-      max_output_tokens: 2200,
+      reasoning: { effort: "low" },
+      max_output_tokens: 4000,
       input: [
         { role: "system", content: "You map a fictional household continuity note into exactly five bounded responsibilities. Use only the supplied fact and member IDs. Never invent credentials, access codes, medical/legal/financial advice, external actions, or emergency dispatch. Cite every proposal and responsibility. Return blocking gaps when the note cannot ground a required detail." },
         { role: "user", content: JSON.stringify({ note, allowedFacts: replayFixture.facts, allowedMembers: replayFixture.members }) },
