@@ -1,0 +1,40 @@
+ROLE
+You are the UI/UX implementation worker for Sahaaya — Family Continuity Planner. Work only inside the supplied isolated non-main worktree.
+
+MISSION
+Replace the placeholder with a polished, responsive, accessible, fully interactive deterministic Replay experience for the complete golden path: Capture → Map → Question → Rehearse → Assign → Approve → Compile → Verify → Export.
+
+READ FIRST
+- AGENTS.md
+- docs/blueprint/SAHAAYA_MASTER_BLUEPRINT_v1.md
+- docs/product/UX_SPECIFICATION.md
+- docs/product/CONTENT_AND_BRAND.md
+- docs/product/ACCESSIBILITY.md
+- lib/domain/contracts.ts
+- lib/domain/fixture.ts
+- lib/domain/workflow.ts
+- lib/domain/verification.ts
+
+OWNERSHIP
+- You may edit app/**, components/**, public/**.
+- You may create only docs/project/worker-handoffs/m3-agy-ui.md outside those paths.
+- Do not edit lib/**, tests/**, package.json, package-lock.json, configuration, or any other docs.
+
+IMPLEMENTATION CONTRACT
+- Use the existing domain fixture and functions; do not duplicate or weaken them.
+- Make the main experience a client component with real buttons and state transitions.
+- Show Replay as simulated fictional data on every relevant state. Never imply messages or external actions occurred.
+- Show exactly five responsibilities and their exact citations/owners.
+- Require explicit approval for all five before compilation; rejection/pending must visibly block it.
+- Candidate compilation, deterministic verification, and export must be visibly separate states.
+- Export may download a local plain-text or JSON continuity pack; no network call.
+- Use a warm, professional family-continuity visual language: parchment/ivory, deep evergreen, terracotta, muted gold; editorial typography; restrained motion. Avoid generic neon/black agent dashboards and excessive gradients.
+- Desktop cards must align cleanly without asymmetric overflow. Long IDs/checksums must wrap or truncate with accessible full values. Mobile 360px must have no horizontal scroll.
+- Meet keyboard, focus-visible, contrast, semantic heading, label, and reduced-motion requirements.
+- Keep implementation minimal; no new dependency unless absolutely necessary.
+
+GATES
+Run npm run lint, npm run typecheck, npm test, npm run demo-assert, npm run build. Fix only failures caused by your owned files.
+
+HANDOFF
+Write docs/project/worker-handoffs/m3-agy-ui.md with sections DONE / BLOCKED / RISK / NEXT, exact files changed, commands run, and results. Do not commit, merge, push, deploy, or edit main.
