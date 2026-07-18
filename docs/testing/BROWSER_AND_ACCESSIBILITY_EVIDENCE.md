@@ -30,3 +30,11 @@ The browser console's only earlier error was a missing favicon during developmen
 ## Dependency evidence
 
 `npm audit --omit=dev --audit-level=moderate` reports zero vulnerabilities. A PostCSS override keeps Next.js on the patched `8.5.10` release without a framework downgrade.
+
+## Public production verification
+
+- URL: `https://sahaaya-khaki.vercel.app`
+- Hosting: Vercel production alias with `OPENAI_API_KEY` stored as a sensitive production variable.
+- Live GPT-5.6: HTTP 200, `store:false`, five responsibilities, five proposals, and four grounded gaps.
+- Replay: five mapped responsibilities, 72-hour rehearsal, explicit approval for all five proposals, candidate compilation, five passing assertions, and a reproducible 64-character SHA-256 receipt.
+- Verification date: 2026-07-19 (Asia/Calcutta).

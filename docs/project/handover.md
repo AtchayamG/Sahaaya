@@ -2,7 +2,7 @@
 
 ## Current state
 
-M0-M4 are complete and independently verified. Replay and Live GPT-5.6 paths pass the full local gate matrix and browser/accessibility audit. The public repository is `https://github.com/AtchayamG/Sahaaya`; deployment, media, and Devpost submission remain pending.
+M0-M5 deployment are complete and independently verified. Replay and Live GPT-5.6 paths pass the full local and public gate matrix. The public repository is `https://github.com/AtchayamG/Sahaaya` and the production app is `https://sahaaya-khaki.vercel.app`; media and Devpost submission remain pending.
 
 ## External-agent status
 

@@ -12,10 +12,10 @@ IN PROGRESS — M5 publication and submission media active.
 - A bounded Live GPT-5.6 smoke returned five grounded responsibilities and five proposals with response storage disabled.
 - Integrated UI, Replay and Live browser golden paths, responsive layout, and final-state accessibility are verified.
 - The public repository is available at `https://github.com/AtchayamG/Sahaaya`.
+- The production app is available at `https://sahaaya-khaki.vercel.app`; its public Replay and Live GPT-5.6 paths are verified.
 
 ## Not yet verified
 
-- Public deployment and production golden path
 - Demo media and Devpost submission
 
 ## Primary Codex task

@@ -20,6 +20,9 @@ M5 — publication and submission media.
 - Playwright completed the Live and Replay golden paths; 360px width has no horizontal overflow and axe reports zero final-state violations.
 - Final lint, typecheck, seven-test, demo assertion, production build, dependency audit, and clean-diff gates pass.
 - Public GitHub repository published at `https://github.com/AtchayamG/Sahaaya`.
+- Production deployment verified at `https://sahaaya-khaki.vercel.app` with the key stored as a sensitive Vercel variable.
+- The public Live GPT-5.6 route returned `stored:false`, five responsibilities, five proposals, and four grounded gaps.
+- The public Replay path completed all five approvals, candidate compilation, five deterministic assertions, and a 64-character SHA-256 receipt.
 
 ## BLOCKED
 
@@ -32,6 +35,6 @@ M5 — publication and submission media.
 
 ## NEXT
 
-1. Deploy the server-backed application with a protected key and verify the public golden path.
-2. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.
-3. Complete and independently verify the Devpost submission.
+1. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.
+2. Publish the demo video and complete the Devpost project fields.
+3. Independently verify the public Devpost submission and linked evidence.
