@@ -8,11 +8,12 @@ IN PROGRESS — M2/M3 provider, compiler, and product experience active.
 
 - M0: clean pre-production blueprint, architecture, safety, evaluation, testing, and submission evidence plan.
 - M1: strict five-responsibility Replay contracts, deterministic fictional fixture, approval-gated workflow, and verification assertions.
-- Lint, typecheck, four unit/golden-path assertions, deterministic demo assertion, and production build pass.
+- Lint, typecheck, seven unit/golden-path assertions, deterministic demo assertion, and production build pass.
+- A bounded Live GPT-5.6 smoke returned five grounded responsibilities and five proposals with response storage disabled.
 
 ## Not yet verified
 
-- Complete candidate pack, receipt, and Live GPT-5.6 boundary
+- Integrated product UI and browser/accessibility proof
 - Browser E2E and accessibility
 - Public repository and deployment
 - Demo media and Devpost submission

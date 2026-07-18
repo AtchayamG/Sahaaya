@@ -13,7 +13,9 @@ M2/M3 — provider, compiler, and product experience.
 - M0 blueprint, architecture, product, safety, testing, evaluation, and submission plans completed and validated.
 - Hermes read-only audit attempt recorded; authentication was unavailable and no changes were produced.
 - Next.js TypeScript foundation, strict Replay contracts, fictional fixture, approval-gated workflow, and deterministic verification implemented.
-- Lint, typecheck, four unit/golden-path assertions, and production build pass.
+- Lint, typecheck, seven unit/golden-path assertions, and production build pass.
+- Candidate role-pack compiler and deterministic SHA-256 receipt implemented.
+- Server-only GPT-5.6 Responses Structured Output route passed a redacted live smoke with `store:false` and application-side grounding.
 
 ## BLOCKED
 

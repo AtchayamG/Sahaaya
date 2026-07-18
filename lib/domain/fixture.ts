@@ -25,7 +25,7 @@ export const replayFixture = replayFixtureSchema.parse({
     { id: "proposal_school", responsibilityId: "resp_school", primaryMemberId: "member_lakshmi", backupMemberId: "member_arjun", rationaleFactIds: ["fact_school"] },
     { id: "proposal_pet", responsibilityId: "resp_pet", primaryMemberId: "member_neha", backupMemberId: "member_lakshmi", rationaleFactIds: ["fact_pet"] },
     { id: "proposal_elder", responsibilityId: "resp_elder", primaryMemberId: "member_arjun", backupMemberId: "member_lakshmi", rationaleFactIds: ["fact_elder"] },
-    { id: "proposal_utility", responsibilityId: "resp_utility", primaryMemberId: "member_arjun", rationaleFactIds: ["fact_utility"] },
+    { id: "proposal_utility", responsibilityId: "resp_utility", primaryMemberId: "member_arjun", backupMemberId: null, rationaleFactIds: ["fact_utility"] },
     { id: "proposal_access", responsibilityId: "resp_access", primaryMemberId: "member_neha", backupMemberId: "member_arjun", rationaleFactIds: ["fact_access"] }
   ]
 });

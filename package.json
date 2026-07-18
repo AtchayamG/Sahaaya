@@ -9,10 +9,12 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "demo-assert": "vitest run tests/demo-assert.test.ts"
+    "demo-assert": "vitest run tests/demo-assert.test.ts",
+    "live-smoke": "tsx scripts/live-smoke.ts"
   },
   "dependencies": {
     "next": "^15.5.0",
+    "openai": "^6.48.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "zod": "^3.25.0"
@@ -24,6 +26,7 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.5.0",
+    "tsx": "^4.23.1",
     "typescript": "^5.8.0",
     "vitest": "^3.2.0"
   }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { advance, decide, initialWorkflowState, replayFixture, replayFixtureSchema, verifyReplay } from "../lib/domain";
+import { advance, compileContinuity, decide, initialWorkflowState, replayFixture, replayFixtureSchema, verifyReplay } from "../lib/domain";
 
 describe("Replay domain", () => {
   it("rejects unknown contract keys", () => expect(() => replayFixtureSchema.parse({ ...replayFixture, unexpected: true })).toThrow());
@@ -14,5 +14,14 @@ describe("Replay domain", () => {
     const results = verifyReplay(replayFixture, initialWorkflowState);
     expect(results.filter((item) => item.name !== "human_approval").every((item) => item.passed)).toBe(true);
     expect(results.find((item) => item.name === "human_approval")?.passed).toBe(false);
+  });
+  it("compiles isolated packs with a stable receipt after approval", () => {
+    let state = advance(advance(advance(initialWorkflowState, replayFixture), replayFixture), replayFixture);
+    for (const proposal of replayFixture.proposals) state = decide(state, { proposalId: proposal.id, decision: "approved", userTimestamp: "2026-07-19T00:00:00.000Z" }, replayFixture);
+    const first = compileContinuity(replayFixture, state);
+    const second = compileContinuity(replayFixture, state);
+    expect(first.packs.flatMap((pack) => pack.items)).toHaveLength(5);
+    expect(first.receipt.checksum).toBe(second.receipt.checksum);
+    expect(first.receipt.approvedDecisions).toBe(5);
   });
 });

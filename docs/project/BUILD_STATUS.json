@@ -13,7 +13,7 @@
     "evaluation_plan_complete": true,
     "implementation_complete": false,
     "deterministic_replay_verified": true,
-    "live_gpt_5_6_proof": false,
+    "live_gpt_5_6_proof": true,
     "browser_e2e_verified": false,
     "accessibility_verified": false,
     "public_repository": false,
@@ -29,5 +29,5 @@
     "public_app_url": null,
     "codex_session_id": "019f5282-7c6f-76d1-888e-ffb0c25de3c8"
   },
-  "last_updated": "2026-07-19T01:32:00+05:30"
+  "last_updated": "2026-07-19T01:38:00+05:30"
 }
