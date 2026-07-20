@@ -14,10 +14,10 @@ Sahaaya captures essential household knowledge, finds missing dependencies, rehe
 
 ## Public links
 
-- App: `[PUBLIC_APP_URL]`
-- Repository: `[GITHUB_URL]`
-- Video: `[YOUTUBE_URL]`
-- Devpost: `[DEVPOST_URL]`
+- App: `https://sahaaya-khaki.vercel.app`
+- Repository: `https://github.com/AtchayamG/Sahaaya`
+- Video: `https://youtu.be/yhBQ0NKOzM0`
+- Devpost: `https://devpost.com/software/sahaaya`
 - Codex session: `019f5282-7c6f-76d1-888e-ffb0c25de3c8`
 
 ## Story outline
