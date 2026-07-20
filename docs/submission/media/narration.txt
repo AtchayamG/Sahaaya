@@ -1,0 +1,17 @@
+Imagine that the person who remembers every small household detail is unavailable for three days. Good intentions are not enough when school pickup, pet care, an elder check-in, a bill reminder, and trusted home access all depend on one person.
+
+This is Sahaaya, a Family Continuity Planner built for the OpenAI Build Week Apps for Your Life category. It turns a short household brief into a clear, family-owned continuity plan.
+
+For this demo, every person and fact is fictional. First, Sahaaya maps five responsibilities and attaches each one to a cited source fact. It also identifies the questions that the family still needs to answer.
+
+Next, we rehearse a seventy-two-hour absence. The planner surfaces an availability collision before anyone relies on the plan, and it explicitly excludes passwords, payment credentials, and door codes.
+
+The key design principle is human control. Sahaaya proposes assignments, but every responsibility stays pending until a person explicitly approves it. Compilation remains blocked until all five decisions are made.
+
+After approval, Sahaaya produces separate candidate checklists for the people involved. It then runs deterministic checks: exact responsibility count, known evidence citations, allowed assignments, explicit approvals, and the fictional replay boundary. A SHA-256 receipt makes the demonstrated plan reproducible.
+
+Codex accelerated the product workflow, architecture, tests, and browser verification. An optional server-only GPT-5.6 proof uses the Responses API with Structured Outputs and store false. GPT-5.6 helps extract grounded suggestions; deterministic application code remains responsible for approvals, verification, and export.
+
+Sahaaya never sends messages, triggers emergency services, or offers medical, legal, financial, or safeguarding advice. It is a planning aid for a calm, human-reviewed handoff.
+
+Sahaaya: when you cannot be there, your circle knows what to do.

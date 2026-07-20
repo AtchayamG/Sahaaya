@@ -63,7 +63,7 @@
       <!-- Item 3 -->
       <circle cx="12" cy="92" r="8" fill="#1d594b" fill-opacity="0.1" />
       <path d="M9 92l2 2 4-4" fill="none" stroke="#1d594b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      <text x="32" y="97" class="sans" font-size="16" font-weight="600" fill="#18312c">Zero-Sensitive Data Storage</text>
+      <text x="32" y="97" class="sans" font-size="16" font-weight="600" fill="#18312c">Privacy-First Planning Demo</text>
     </g>
   </g>
   
