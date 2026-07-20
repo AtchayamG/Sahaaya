@@ -33,8 +33,13 @@ M5 — publication and submission media.
 - Deadline is July 21, 2026 at 5:00 PM PDT; optional voice must not delay the deterministic demo.
 - Consumer household data is sensitive; P0 forbids persistence and high-risk secret categories.
 
+## DONE (M5 completion, July 20, 2026)
+
+- Demo video published publicly at `https://youtu.be/yhBQ0NKOzM0` with creator captions (corrected SRT) and custom thumbnail.
+- Devpost project created, fully filled (story, 8 built-with tags, app + repo links, video, 6 gallery screenshots, Individual/India, Apps for Your Life, Codex session ID), and SUBMITTED to OpenAI Build Week.
+- Public project page verified at `https://devpost.com/software/sahaaya`; My Projects shows all four projects SUBMITTED.
+- README updated with setup instructions and Codex + GPT-5.6 usage evidence; media assets committed and pushed.
+
 ## NEXT
 
-1. Produce screenshots, narrated demo video, captions, thumbnail, and final submission evidence.
-2. Publish the demo video and complete the Devpost project fields.
-3. Independently verify the public Devpost submission and linked evidence.
+- None. Submission complete.
