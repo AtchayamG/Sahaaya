@@ -2,6 +2,7 @@ node_modules/
 .next/
 .playwright-cli/
 out/
+output/
 coverage/
 playwright-report/
 test-results/
